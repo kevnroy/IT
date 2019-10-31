@@ -120,15 +120,15 @@ span.price {
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="/action_page.php">
+      <form name="form1" method="post">
       
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Enter Name">
+            <input type="text" name="fname" placeholder="Enter Name">
             <label for="email"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="Enter E-mail id">
+            <input type="text" name="email" placeholder="Enter E-mail id">
             <label for="adr"></i> Address</label>
             <input type="text" id="adr" name="address" placeholder="Enter Address">
             <label for="city">City</label>
@@ -171,23 +171,99 @@ span.price {
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-        
+ <button class="btn" onclick="validate()" >Continue To Checkout</button>       
       </form>
-<a href="paydonesux.html"><button value="Continue to checkout" class="btn">Continue To Checkout</button></a>
+ 
     </div>
   </div>
   <div class="col-25">
     <div class="container">
       
-      <p><a href="#">Hotel Room</a> <span class="price">Rs.25000</span></p>
-      <p><a href="#">Tax</a> <span class="price">Rs.643</span></p>
-      <p><a href="#">Room Services</a> <span class="price">Rs.100</span></p>
+      <p><a href="#">Hotel Room</a> <span class="price">Rs.19000</span></p>
+      <p><a href="#">Tax</a> <span class="price">Rs.410</span></p>
+      
       <hr>
-      <p>Total <span class="price" style="color:black"><b>Rs.25743</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>Rs.19410</b></span></p>
     </div>
   </div>
 </div>
+<script>
+    function validate() {
+var fn = document.form1.fname.value;
+var em = document.form1.email.value;
+var city = document.form1.city.value;
+var state = document.form1.state.value;
+var zip = document.form1.zip.value;
+var add = document.form1.address.value;
+var cn = document.form1.cardname.value;
+var cno = document.form1.cardnumber.value;
+var n="";
+var letters = /^[A-Za-z]+$/;
+var letters1 = /^[0-9]+$/;
 
+      if(fn.match(letters))
+      {
+if(em!=n)
+{
+if(city!=n)
+{ 
+if(state!=n)
+{
+if(add!=n)
+{
+if(cn.match(letters))
+{
+if(cno.match(letters1))
+{
+if(zip.match(letters1))
+{
+  window.open("paydonesux.html");
+}
+else
+{
+alert("Enter PinCode");
+}
+}
+ 
+else
+{
+alert("Enter Card Number");
+}}
+    else
+      {
+alert ("Enter Name On the Card");
+       }
+}
+else
+{
+alert("Enter the address");
+}
+}
+else
+{
+      alert('Enter State');
+
+}
+
+      }
+      else
+      {
+      alert('Enter City');
+            } 
+   
+}
+ else
+      {
+      alert('Enter email');
+            } 
+   
+}
+ else
+      {
+      alert('Enter your name');
+            } 
+               }        
+</script>
 <img class="i"src="visa.png"/>
 </body>
 </html>
